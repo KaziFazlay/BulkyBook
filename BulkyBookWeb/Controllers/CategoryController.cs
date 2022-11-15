@@ -2,6 +2,7 @@
 using BulkyBook.DataAccess;
 using BulkyBook.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace BulkyBookWeb.Controllers
 {
@@ -45,7 +46,7 @@ namespace BulkyBookWeb.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.Categories.Find(id);
+            var obj = _db.Categories.FirstOrDefault(u=>u.Name=="id");
             if(obj==null)
             {
                 return NotFound(); 
